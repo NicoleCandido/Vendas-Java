@@ -1,62 +1,41 @@
-# Vendas-Java
-Sistema básico de vendas e parcelamento em Java com POO.
----Codigo do botão---
-     c.setValor(Double.valueOf(jTValor.getText()));
-        c.setparcela(Integer.valueOf(jTparcelas.getText()));
-        c.Maior();
-        jLresultado.setText("Valor da venda: "+c.venda());
-        jLMaiorVenda.setText(" "+c.Maior());
-        jLSoma.setText(" " +c.Soma( )); 
-        jTValor.setText("");
-        jTValor.requestFocus();
+<h1 align="center">Vendas em Java</h1>
 
-------Codigo do Class-------
-       private double Valor;
-    private int parcela;
-    double total;
-    public double Maior;
-    public double Soma;
-    public double getValor() {
-        return Valor;
-    }
-    public void setValor(double Valor){
-        this.Valor = Valor; 
-     }
-    public void getparcela(int parcela ){
-        this.parcela = parcela;
-    }
-    public void setparcela(int parcela ){
-        this.parcela = parcela;
-    }
-    public void getMaior(double Maior){
-        this.Maior = Maior;
-    }
-    public void setMaior(double Maior){
-        this.Maior = Maior;
-    }
-    public double Maior( ){
-       if(Valor>Maior){
-           Maior=Valor;
-       }
-       return Maior;
-    }
-    public double Soma( ){
-        this.Soma=Soma+Valor;{
-    }
-    return Soma;
-    }
-    public double venda( ){
-        if (this.parcela <=1){
-        return this.Valor-(this.Valor*0.1); 
-        }
-        else if (this.parcela >1 && this.parcela<=3){
-            total=this.Valor+this.Valor*0.05;
-        }
-        else if(this.parcela >3){
-            total=this.Valor+this.Valor*0.1;
-        }
-        return total;
-    }
-}
+<p align="center">
+  <img src="https://img.shields.io/badge/Java-8a2be2?style=for-the-badge&logo=openjdk&logoColor=white" />
+  <img src="https://img.shields.io/badge/Swing-ff69b4?style=for-the-badge&logo=java&logoColor=white" />
+  <img src="https://img.shields.io/badge/POO-8a2be2?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Status-Concluído-ff69b4?style=for-the-badge" />
+</p>
 
+<p align="center">
+  Sistema de vendas com interface gráfica que calcula o valor final de acordo com o parcelamento<br>
+  e acompanha a maior venda e o total vendido. Criado para praticar Programação Orientada a Objetos.
+</p>
 
+---
+
+## Regras de parcelamento
+
+| Forma de pagamento    | Ajuste no valor        |
+| :-------------------- | :--------------------- |
+| À vista (1x)          | **10% de desconto**    |
+| De 2x a 3x            | **5% de acréscimo**    |
+| Acima de 3x           | **10% de acréscimo**   |
+
+**Exemplo:** uma venda de R$ 200,00 em 6x fica R$ 220,00, ou seja, 6x de R$ 36,67.
+
+## Funcionalidades
+
+- Calcula o valor final e o valor de cada parcela
+- Mostra a **maior venda** registrada
+- Mostra a **soma de todas as vendas**
+- Aceita valores com vírgula ou ponto (ex.: `150,90`)
+- Exibe os valores formatados em Real (`R$ 1.234,56`)
+- Avisa quando o valor ou as parcelas são inválidos
+
+## Conceitos de POO aplicados
+
+- **Encapsulamento:** atributos privados com getters e setters
+- **Validação nos setters:** valor e parcelas inválidos são recusados
+- **Constantes** (`static final`) para as taxas, facilitando mudanças nas regras
+- **Separação de responsabilidades:** a classe `Venda` faz os cálculos e a tela só exibe os resultados
